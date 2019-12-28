@@ -1,0 +1,162 @@
+#+TITLE: My private doom emacs config
+
+This is my private doom emacs configuration. Specifically configured for Python and LaTeX.
+The configuration is based on [[https://github.com/ztlevi/doom-config][ztlevi/doom-config]] and [[https://github.com/50ways2sayhard/doom-config][50ways2sayhard/doom-config]].
+
+* Table of Contents :TOC:
+- [[#installation][Installation]]
+  - [[#step1-install-emacs][Step1: Install Emacs]]
+  - [[#step2-install-doom-emacs][Step2: Install Doom Emacs]]
+  - [[#step3-dependencies-and-configuration][Step3: Dependencies and Configuration]]
+- [[#features][Features]]
+- [[#configuration][Configuration]]
+- [[#appendix][Appendix]]
+  - [[#commands][Commands]]
+  - [[#hacks][Hacks]]
+
+* Installation
+** Step1: Install Emacs
+*** MacOS
+- *Method 1*: Use brew cask(Recommended)
+  #+BEGIN_SRC shell
+brew tap railwaycat/emacsmacport
+brew cask install emacs-mac
+  #+END_SRC
+
+- *Method 2*: Just brew, need compiling. (more customization)
+  #+BEGIN_SRC shell
+brew tap railwaycat/emacsmacport
+rm -r /Applications/Emacs.app
+brew install emacs-mac --with-modules --with-natural-title-bar
+# create alias in /Applications
+ln -Fs `sudo find /usr/local/Cellar/emacs-mac -name "Emacs.app"` /Applications/Emacs.app
+  #+END_SRC
+
+  #+BEGIN_QUOTE
+  Notes: (just for method 2)
+  1. natural-title-bar usage [[https://github.com/railwaycat/homebrew-emacsmacport/wiki/Natural-Title-Bar][here]].
+  2. Solution to incoming network connection:
+     Codesign your Emacs.app. Instructions over [[http://apple.stackexchange.com/questions/3271/how-to-get-rid-of-firewall-accept-incoming-connections-dialog/170566][here]].
+     ~codesign --deep --force --verbose --sign ztlevi /usr/local/opt/emacs-mac/Emacs.app~
+  #+END_QUOTE
+*** Linux
+#+BEGIN_SRC shell
+# Ubuntu
+sudo add-apt-repository ppa:kelleyk/emacs
+sudo apt-get update
+sudo apt install emacs26
+# Arch
+sudo pacman -S emacs
+#+END_SRC
+
+** Step2: Install Doom Emacs
+#+BEGIN_SRC shell
+# Clone Doom Eemacs
+rm -r ~/.emacs.d
+git clone https://github.com/hlissner/doom-emacs -b develop ~/.emacs.d
+
+# Clone my config
+git clone https://github.com/theFool32/emacs-config ~/.doom.d
+
+cd ~/.emacs.d
+make quickstart
+#+END_SRC
+** Step3: Dependencies and Configuration
+This Emacs configuration is written for Emacs 25.1+ on Mac OS X 10.11+ and Linux Arch. Windows users may need to tweak the config for themselves.
+
+*** Dependencies needed
+Install dependencies including search tools, utils, and linters.
+
+**** OS
+***** MacOS
+#+BEGIN_SRC sh :tangle (if (doom-system-os 'macos) "yes")
+# search tool
+brew install ripgrep grep
+# utils
+brew install fd sqlite hub watchman gpg2 coreutils ctags gnu-tar mplayer clang-format direnv
+# language
+brew install shellcheck aspell hadolint wordnet languagetool
+# Cask
+brew cask install xquartz
+#+END_SRC
+
+***** Arch Linux
+#+BEGIN_SRC sh :dir /sudo:: :tangle (if (doom-system-os 'arch) "yes")
+sudo pacman --needed --noconfirm -S sqlite ripgrep clang-format fd wmctrl direnv
+#+END_SRC
+
+Note: for windows users, [[http://aspell.net/win32/][aspell]] is used instead. ripgrep can be installed via [[https://chocolatey.org/][choco]]
+
+***** Ubuntu
+#+BEGIN_SRC shell
+sudo apt install mplayer clang-format wmctrl direnv
+#+END_SRC
+
+- For vterm
+#+BEGIN_SRC shell
+sudo apt install libvterm-dev libtool-bin
+#+END_SRC
+
+**** npm
+#+BEGIN_SRC shell
+npm install -g cspell prettier import-js trash-cli
+#+END_SRC
+
+**** pip
+#+BEGIN_SRC shell
+python3 -m pip install --upgrade pylint gnureadline black importmagic epc grip cpplint
+#+END_SRC
+
+**** go: This module requires a valid ~GOPATH~, and the following Go packages:
+#+BEGIN_SRC shell
+# macos
+brew install go
+
+# arch
+sudo pacman --needed --noconfirm -S go
+#+END_SRC
+
+*** Language Server Protocol: Install the [[https://langserver.org/][lsp]] for your languages. A few examples are listed below.
+#+BEGIN_SRC shell
+# python
+# M-x lsp-python-ms-update-server
+
+# ccls: https://github.com/MaskRay/ccls/wiki/Getting-started
+brew tap twlz0ne/homebrew-ccls
+brew install ccls
+
+# Rust
+rustup update
+rustup component add rls rust-analysis rust-src
+
+# Javascript
+npm i -g typescript
+
+# Vue
+npm install vue-language-server -g
+
+# gopls
+go get -u golang.org/x/tools/gopls
+#+END_SRC
+
+*** For MacOS, according to the discussion [[https://emacs-china.org/t/topic/6453/6][here]], the following codes will speed up Emacs GUI startup time.
+#+BEGIN_SRC bash
+defaults write org.gnu.Emacs Emacs.ToolBar -string no
+defaults write org.gnu.Emacs Emacs.ScrollBar -string no
+defaults write org.gnu.Emacs Emacs.MenuBar -string no
+#+END_SRC
+
+#+RESULTS:
+
+* Features
+An in-depth list of features, how to use them, and their dependencies.
+
+* Configuration
+How to configure this module, including common problems and how to address them.
+
+* Appendix
+** Commands
++ A list or table of public commands (and their keybinds) and functions that this module exposes.
++ A brief description of how to use them
+** Hacks
++ Include a list of ways this module changes default behavior
