@@ -69,6 +69,23 @@
 (after! dired
   (remove-hook 'dired-after-readin-hook '+dired-enable-git-info-h))
 
+(use-package! ranger
+  :config
+  (setq ranger-hide-cursor t
+        ranger-show-hidden 'format
+        ranger-deer-show-details nil)
+
+  (defun ranger-close-and-kill-inactive-buffers ()
+    "ranger close current buffer and kill inactive ranger buffers"
+    (interactive)
+    (ranger-close)
+    (ranger-kill-buffers-without-window))
+  ;; do not kill buffer if exists in windows
+  (defun ranger-disable ()
+    "Interactively disable ranger-mode."
+    (interactive)
+    (ranger-revert)))
+
 
 (after! all-the-icons-dired
   (advice-add 'wdired-change-to-wdired-mode :before (λ! (all-the-icons-dired-mode -1)))

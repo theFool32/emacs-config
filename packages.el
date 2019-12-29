@@ -3,8 +3,8 @@
 
 ;; disabled packages
 (disable-packages! solaire-mode
-                   ;; anaconda-mode
-                   ;; company-anaconda
+                   anaconda-mode
+                   company-anaconda
                    pyimport)
 
 ;; misc
@@ -34,6 +34,8 @@
 (package! flycheck-mypy)
 (package! flycheck-google-cpplint :recipe (:host github :repo "flycheck/flycheck-google-cpplint"))
 ;; (package! company-flx)
+(package! prescient)
+(package! company-prescient)
 (package! company-fuzzy)
 (package! company-tabnine)
 (package! counsel-tramp)

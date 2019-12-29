@@ -79,7 +79,8 @@
           (lambda ()
             (setq company-backends '(company-files
                                      company-dabbrev
-                                     company-anaconda))
+                                     ;; company-anaconda
+                                     ))
             )
           )
 (setq +lsp-company-backend '(company-lsp company-tabnine))
@@ -204,7 +205,7 @@
         importmagic-python-interpreter "python3"
         python-shell-interpreter "python3"
         pippel-python-command "python3"
-        conda-env-home-directory (expand-file-name "~/.conda")
+        ;; conda-env-home-directory (expand-file-name "~/.conda")
         flycheck-python-pylint-executable "pylint"
         flycheck-python-flake8-executable "flake8"))
 
