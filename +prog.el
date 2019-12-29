@@ -362,20 +362,3 @@
        (add-to-list 'TeX-view-program-selection '(output-pdf "PDF Viewer"))))
   )
 
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Org-mode
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; (setq org-agenda-files "~/Dropbox/org-notes/")
-
-(add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
-(add-to-list 'auto-mode-alist '("\\.gitignore$" . sh-mode))
-(add-to-list 'auto-mode-alist '("\\.ratpoisonrc$" . sh-mode))
-
-(after! org
-(setq org-directory "~/Dropbox/org-notes/")
-(add-to-list 'org-capture-templates
-          '("j" "Journal" entry
-           (file+headline "~/Dropbox/org-notes/journal.org" "Inbox")
-           "* %u %?\n%i" :prepend t :kill-buffer t))
-  )

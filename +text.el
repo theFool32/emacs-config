@@ -6,7 +6,11 @@
 ;; ORG
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(setq org-directory (expand-file-name "~/org-notes")
+(add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
+(add-to-list 'auto-mode-alist '("\\.gitignore$" . sh-mode))
+(add-to-list 'auto-mode-alist '("\\.ratpoisonrc$" . sh-mode))
+
+(setq org-directory (expand-file-name "~/Dropbox/org-notes")
       org-agenda-files (list org-directory)
       org-ellipsis " ▼ "
       org-babel-python-command "python3"
@@ -21,6 +25,9 @@
            "* TODO %?\n%i" :prepend t :kill-buffer t)
           ("n" "Personal notes" entry
            (file+headline +org-capture-notes-file "Inbox")
+           "* %u %?\n%i" :prepend t :kill-buffer t)
+          ("j" "Journal" entry
+           (file+headline +org-capture-journal-file "Inbox")
            "* %u %?\n%i" :prepend t :kill-buffer t)
 
           ;; Will use {project-root}/{todo,notes,changelog}.org, unless a

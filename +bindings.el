@@ -14,6 +14,7 @@
       :leader
       :desc "Eval expression"       ":"    #'eval-expression
       :desc "M-x"                   ";"    #'execute-extended-command
+      :desc "Org Capture"           "x"    #'org-capture
 
       (:prefix-map ("g" . "git")
         (:when (featurep! :ui vc-gutter)
