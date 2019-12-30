@@ -4,11 +4,10 @@
 (setq display-line-numbers-type 'relative)
 
 
-;; (if (display-graphic-p)
-;;     (load-theme 'doom-nord t)
-;;   (load-theme 'doom-one t))
+(if (display-graphic-p)
+    (load-theme 'doom-nord t)
+  (load-theme 'doom-one t))
 ;; (flucui-themes-load-style 'dark)
-(load-theme 'doom-spacegrey t)
 
 (when (display-graphic-p)
  (cond (IS-MAC
@@ -40,8 +39,8 @@
   '(tide-hl-identifier-face :inherit 'lsp-face-highlight-read)
   ;; '(lsp-intellij-face-code-lens-run :background "honeydew")
   `(ivy-posframe-border :background ,(doom-color 'blue))
-  `(magit-diff-file-heading :background ,(doom-lighten (doom-color 'blue) 0.5))
-  `(magit-diff-file-heading-highlight :background ,(doom-lighten (doom-color 'blue) 0.2))
+  ;; `(magit-diff-file-heading :background ,(doom-lighten (doom-color 'blue) 0.5))
+  ;; `(magit-diff-file-heading-highlight :background ,(doom-lighten (doom-color 'blue) 0.2))
   '(markdown-header-face-1 :inherit 'org-level-1)
   '(markdown-header-face-2 :inherit 'org-level-2)
   '(markdown-header-face-3 :inherit 'org-level-3)
