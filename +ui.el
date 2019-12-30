@@ -7,7 +7,8 @@
 ;; (if (display-graphic-p)
 ;;     (load-theme 'doom-nord t)
 ;;   (load-theme 'doom-one t))
-(flucui-themes-load-style 'dark)
+;; (flucui-themes-load-style 'dark)
+(load-theme 'doom-spacegrey t)
 
 (when (display-graphic-p)
  (cond (IS-MAC
