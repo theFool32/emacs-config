@@ -66,7 +66,6 @@
         company-tooltip-minimum 5
         company-quickhelp-delay nil
         company-frontends '(
-                            ;; company-tng-frontend
                             company-pseudo-tooltip-unless-just-one-frontend
                             company-preview-frontend
                             company-echo-metadata-frontend

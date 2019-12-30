@@ -43,8 +43,8 @@
 (map!
  (:after company
    (:map company-active-map
-     "<tab>"   #'company-complete-common-or-cycle
-     "C-k" #'my-company-yasnippet
+     ;; "<tab>"   #'company-complete-common-or-cycle
+     "C-n" #'my-company-yasnippet
      )))
 (define-key evil-insert-state-map (kbd "C-k") 'yas-expand)
 
