@@ -25,6 +25,7 @@
 
 ;; ui
 (package! company-box)
+(package! flucui-themes)
 
 ;; programming
 ;; (package! bazel-mode :recipe (:host github :repo "bazelbuild/emacs-bazel-mode"))

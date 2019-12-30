@@ -4,9 +4,10 @@
 (setq display-line-numbers-type 'relative)
 
 
-(if (display-graphic-p)
-    (load-theme 'doom-nord t)
-  (load-theme 'doom-one t))
+;; (if (display-graphic-p)
+;;     (load-theme 'doom-nord t)
+;;   (load-theme 'doom-one t))
+(flucui-themes-load-style 'dark)
 
 (when (display-graphic-p)
  (cond (IS-MAC
