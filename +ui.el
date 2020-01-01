@@ -190,6 +190,12 @@
           company-box-icons-alist 'company-box-icons-all-the-icons)
     ))
 
+(use-package! nyan-mode
+  :after doom-modeline
+  :init
+  (setq nyan-animate-nyancat t
+        nyan-wavy-trail t)
+  (nyan-mode 1))
 
 ;; (add-hook 'company-mode-hook 'company-box-mode)
 ;; (use-package! company-box
