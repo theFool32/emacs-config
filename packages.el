@@ -42,6 +42,8 @@
 (package! company-tabnine)
 (package! counsel-tramp)
 
+(package! org-ref)
+
 ;; better edit
 (package! elec-pair)
 (package! hungry-delete)

@@ -13,6 +13,8 @@
         ;; +tng
         +auto            ; as-you-type code completion
         +childframe      ; a nicer company UI (Emacs 26+ only)
+        +ivy
+        +presicent
         )
        ;;(helm             ; the *other* search engine for love and life
        ;;+fuzzy)          ; enable fuzzy search backend for helm
@@ -185,7 +187,39 @@
 
        :private
        ;; lsp-intellij
+       ;; reference
        )
 
 ;; (setq custom-file (expand-file-name "custom.el" doom-local-dir))
 ;; (load custom-file 'no-error 'no-message)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(org-agenda-files
+   (quote
+    ("/Users/lijie/Dropbox/org-notes/journal.org" "/Users/lijie/Dropbox/org-notes/notes.org" "/Users/lijie/Dropbox/org-notes/todo.org"))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(ein:cell-input-area ((t (:background "#f5e7e8"))))
+ '(ein:cell-input-prompt ((t (:background "#C16069" :foreground "#191C25" :bold t))))
+ '(flycheck-warning ((t (:underline nil))))
+ '(flymake-warning ((t (:underline nil))))
+ '(flyspell-duplicate ((t (:underline "#D2876D"))))
+ '(flyspell-incorrect ((t (:underline "#C16069"))))
+ '(ivy-posframe-border ((t (:background "#80A0C2"))))
+ '(markdown-header-face-1 ((t (:inherit (quote org-level-1)))))
+ '(markdown-header-face-2 ((t (:inherit (quote org-level-2)))))
+ '(markdown-header-face-3 ((t (:inherit (quote org-level-3)))))
+ '(show-paren-match ((t (:background "#bbd6d6" :foreground "#242832"))))
+ '(tide-hl-identifier-face ((t (:inherit (quote lsp-face-highlight-read)))))
+ '(variable-pitch ((t (:family nil))))
+ '(web-mode-jsx-depth-1-face ((t (:background "#f3f8f8"))))
+ '(web-mode-jsx-depth-2-face ((t (:background "#e8f1f1"))))
+ '(web-mode-jsx-depth-3-face ((t (:background "#ddeaea"))))
+ '(web-mode-jsx-depth-4-face ((t (:background "#d1e4e3"))))
+ '(web-mode-jsx-depth-5-face ((t (:background "#c6dddd")))))
